@@ -14,6 +14,7 @@ from torchvision.datasets import (CIFAR10, CIFAR100, DTD, GTSRB, MNIST, PCAM,
 
 from . import (babel_imagenet, caltech101, flickr, imagenetv2, objectnet,
                sugar_crepe, voc2007, winoground)
+from .dollar_street import DollarStreet
 
 
 def build_dataset(dataset_name, root="root", transform=None, split="test", download=True, annotation_file=None, language="en", task="zeroshot_classification", wds_cache_dir=None, custom_classname_file=None, custom_template_file=None, **kwargs):
@@ -417,7 +418,7 @@ def build_dataset(dataset_name, root="root", transform=None, split="test", downl
         ds.classes = default_classnames["eurosat"]
     elif dataset_name == "gtsrb":
         assert split in ("train", "test"), f"Only `train` and `test` split available for {dataset_name}"
-        ds =  GTSRB(root=root, split=split, transform=transform, download=download, **kwargs)
+        ds = GTSRB(root=root, split=split, transform=transform, download=download, **kwargs)
         ds.classes = default_classnames["gtsrb"]
     elif dataset_name == "country211":
         assert split in ("train", "valid", "test"), f"Only `train` and `valid` and `test` split available for {dataset_name}"
@@ -464,6 +465,9 @@ def build_dataset(dataset_name, root="root", transform=None, split="test", downl
         # WDS specify classnames and templates on its own.
     elif dataset_name == "dummy":
         ds = Dummy()
+    # todo
+    elif dataset_name == "dollar-street":
+        ds = DollarStreet(root=root, split="train" if train else "val", transform=transform, **kwargs)
     else:
         raise ValueError(f"Unsupported dataset: {dataset_name}.")
 
@@ -549,7 +553,7 @@ def build_vtab_dataset(dataset_name, transform, download=True, split="test", dat
                        download_tfds_dataset)
 
     # avoid Tensorflow owning GPUs to not clash with PyTorch
-    disable_gpus_on_tensorflow()
+    # disable_gpus_on_tensorflow()
 
     # by default we take classes from TFDS (default behavior if `classes` stays None),
     # except for the datasets that will override `classes` (e.g., clevr_*)

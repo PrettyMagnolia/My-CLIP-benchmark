@@ -1,0 +1,1 @@
+{"dataset": "objectnet", "model": "ViT-B-32", "pretrained": "/mnt/shared/CLIP-ViT-B-32-laion2B-s34B-b79K/open_clip_pytorch_model.bin", "task": "zeroshot_classification", "metrics": {"acc1": 0.49138580811887583, "acc5": 0.7336599547754926, "mean_per_class_recall": 0.48280956527330937}, "language": "en"}

@@ -1,0 +1,1 @@
+ViT-B-32,/mnt/shared/CLIP-ViT-B-32-laion2B-s34B-b79K/open_clip_pytorch_model.bin

@@ -1,0 +1,1 @@
+{"dataset": "vtab/cifar100", "model": "ViT-B-32", "pretrained": "/mnt/shared/CLIP-ViT-B-32-laion2B-s34B-b79K/open_clip_pytorch_model.bin", "task": "zeroshot_classification", "metrics": {"acc1": 0.7554, "acc5": 0.9388, "mean_per_class_recall": 0.7552000000000001}, "language": "en"}

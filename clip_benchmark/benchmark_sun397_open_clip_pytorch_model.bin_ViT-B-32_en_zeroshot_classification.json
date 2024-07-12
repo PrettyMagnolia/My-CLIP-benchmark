@@ -1,0 +1,1 @@
+{"dataset": "sun397", "model": "ViT-B-32", "pretrained": "/mnt/shared/CLIP-ViT-B-32-laion2B-s34B-b79K/open_clip_pytorch_model.bin", "task": "zeroshot_classification", "metrics": {"acc1": 0.6872206999282785, "acc5": 0.9371057616271585, "mean_per_class_recall": 0.6855940400601546}, "language": "en"}
